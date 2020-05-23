@@ -9,7 +9,7 @@ npm run dev
 
 ## But de l'application en une phrase
 
-Simulateur de draft Magic the Gathering.
+Simulateur de draft Magic the Gathering (Extension War Of The Spark).
 
 ## URL de l'API utilisée
 

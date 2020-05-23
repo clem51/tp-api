@@ -8,7 +8,15 @@ img {
   max-width: 100%;
 }
 body {
-  // background-color: black;
+  background-image: url("../../Background.jpg");
+  background-size: cover;
+}
+@mixin transition(
+  $property: all,
+  $duration: 0.5s,
+  $ease: cubic-bezier(0.65, -0.25, 0.25, 1.95)
+) {
+  transition: $property $duration $ease;
 }
 .cards {
   margin: 5%;
@@ -19,16 +27,38 @@ body {
   ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     li {
       width: 220px;
       flex-direction: row;
+      margin: 5px;
     }
   }
 }
 .start--button {
   position: absolute;
   top: 50%;
+  .button {
+    border: solid white 2px;
+    border-radius: 5%;
+    background-color: white;
+    cursor: pointer;
+    &.begin {
+      @include transition(all, 0.5s, cubic-bezier(0.65, -0.25, 0.25, 1.95));
+      font-weight: 900;
+      color: #ffff;
+      padding: 1.25rem 2rem;
+      background: #3ba95c;
+      text-transform: uppercase;
+      &:hover,
+      &:focus,
+      &:active {
+        letter-spacing: 0.125rem;
+      }
+    }
+  }
 }
+
 .hidden {
   display: none;
 }
