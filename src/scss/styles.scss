@@ -8,7 +8,7 @@ img {
   max-width: 100%;
 }
 body {
-  background-color: black;
+  // background-color: black;
 }
 .cards {
   margin: 5%;
@@ -16,10 +16,13 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: white;
-
-  img {
-    width: 220px;
-    flex-direction: row;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: 220px;
+      flex-direction: row;
+    }
   }
 }
 .start--button {
