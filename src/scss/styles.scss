@@ -1,5 +1,31 @@
-@import 'vendors/reset';
+@import "vendors/reset";
+@import "loader.scss";
 
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
 body {
-  background-color: lightblue;
+  background-color: black;
+}
+.cards {
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: white;
+
+  img {
+    width: 220px;
+    flex-direction: row;
+  }
+}
+.start--button {
+  position: absolute;
+  top: 50%;
+}
+.hidden {
+  display: none;
 }

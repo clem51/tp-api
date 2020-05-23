@@ -6,10 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <link rel="stylesheet" href="scss/styles.scss" />
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
   </head>
   <body>
-    <input type="button" value="Start Draft" />
-    <div class="cards"></div>
+    <div class="cards">
+      <ul class="cardList"></ul>
+      <div class="start--button">
+        <input type="button" value="Start Draft" class="button" />
+        <div class="lds-ring hidden">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
