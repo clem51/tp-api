@@ -11,6 +11,7 @@ body {
   background-image: url("../../Background.jpg");
   background-size: cover;
 }
+//button animation
 @mixin transition(
   $property: all,
   $duration: 0.5s,
@@ -18,12 +19,20 @@ body {
 ) {
   transition: $property $duration $ease;
 }
+@font-face {
+  font-family: "Magic:the Gathering";
+  src: url("../Assets/Fonts/magic.ttf") format("ttf");
+}
+//div who contains cards, should call it card--container
 .cards {
   margin: 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: white;
+  background-color: rgba(128, 128, 128, 0.25);
+  border-radius: 2%;
+  margin-left: 9.5%;
+  margin-right: 9.5%;
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -32,27 +41,38 @@ body {
       width: 220px;
       flex-direction: row;
       margin: 5px;
+      img:hover {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-left: 5px solid rgba(0, 0, 0, 0.8);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
     }
   }
 }
+// button container
 .start--button {
   position: absolute;
   top: 50%;
   .button {
     border: solid white 2px;
     border-radius: 5%;
-    background-color: white;
     cursor: pointer;
+    font-family: "Magic:the Gathering", serif;
+    letter-spacing: 0.3em;
     &.begin {
       @include transition(all, 0.5s, cubic-bezier(0.65, -0.25, 0.25, 1.95));
       font-weight: 900;
       color: #ffff;
       padding: 1.25rem 2rem;
       background: #3ba95c;
+      opacity: 90%;
       text-transform: uppercase;
       &:hover,
       &:focus,
       &:active {
+        opacity: 65%;
         letter-spacing: 0.125rem;
       }
     }
@@ -62,12 +82,8 @@ body {
 .hidden {
   display: none;
 }
-.header--image {
-  // border: solid red 1px;
-}
 .img--container {
   width: 100%;
-  // border: solid blue 1px;
   display: flex;
   justify-content: center;
   align-items: center;
