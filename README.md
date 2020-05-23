@@ -22,6 +22,7 @@ J'ai plus de voiture....
 ## Fonctionnement détaillé de l'application
 
 ![Logo War](WAR_logo.png)
+
 Le principe est de reproduire un draft sur Magic le fonctionnement est assez compliqué :
 Voir les principes de draft sur https://magic.wizards.com/fr/articles/archive/how-play-limited/le-booster-draft-de-quoi-il-sagit-et-comment-y-jouer-2017-11-07’. C'est assez long a expliquer mais en
 substance :
@@ -34,4 +35,3 @@ Et pour le dernier booster pareil mais dans l'autre sens ( vers la gauche ).
 Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark sur lequel j'ai décidé de faire le TP : Azorius Fly .),
 et bien sûr les joueurs devront jouer les uns contre les autres ce que je n'ai pas implémenté que je n'en ai pas l'intention
 sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magic ). Si c'est du chinois je pense que le lien le résumera mieux que moi.
-![PBooster WAR](BoosterWar.png)
