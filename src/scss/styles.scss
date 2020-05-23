@@ -32,3 +32,13 @@ body {
 .hidden {
   display: none;
 }
+.header--image {
+  // border: solid red 1px;
+}
+.img--container {
+  width: 100%;
+  // border: solid blue 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

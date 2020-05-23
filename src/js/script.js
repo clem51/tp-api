@@ -4,11 +4,13 @@ const $button = document.querySelector(".button");
 const $cardsContainer = document.querySelector(".cards");
 const $loader = document.querySelector(".lds-ring");
 const $listContainer = document.querySelector(".cardList");
+const $header = document.querySelector(".header--image");
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
 
 // make disappear the button after cliking
 $button.addEventListener("click", () => {
+  $header.classList.add("hidden");
   $button.classList.add("hidden");
   $loader.classList.remove("hidden");
   startDraft();
