@@ -39,6 +39,7 @@ Et pour le dernier booster pareil mais dans l'autre sens ( vers la gauche ).
 <p align="center">
   <img src="Plan_Draft.png">
 </p>
+
 Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark sur lequel j'ai décidé de faire le TP : Azorius Fly .),
 et bien sûr les joueurs devront jouer les uns contre les autres ce que je n'ai pas implémenté et que je n'en ai pas l'intention
-sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magic ). Si c'est du chinois je pense que le lien le résumera mieux que moi.
+sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magic ). Si c'est du chinois je pense que le lien le résumera mieux que moi. Voir les principes de draft sur https://magic.wizards.com/fr/articles/archive/how-play-limited/le-booster-draft-de-quoi-il-sagit-et-comment-y-jouer-2017-11-07’.
