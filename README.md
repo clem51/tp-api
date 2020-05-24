@@ -51,12 +51,12 @@ Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/
   <img src="https://im3.ezgif.com/tmp/ezgif-3-5047cc68c1b3.gif">
 </p>
 
-Tips :
+## Tips :
 
 -Il semblerait que Firefox gère mieux l'affichage des images, elles sont plus rapides à apparaitre.
 Pour changer la résolution des images si votre pc/navigateur/réseau est lent :
 Ligne 32/33 dans script.js commentez la ligne avec "\$img.src = card.image_uris.png" et décommentez la ligne en dessous,
-cela aura par contre un effet esthétique car le animation et les effets de hover sont prévues pour des images en png.
+cela aura par contre un effet esthétique car les animations et les effets de hover sont prévues pour des images en png.
 
 <p align="center">
   <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/screenreadme1.png">
@@ -69,7 +69,7 @@ Ligne 2/3 dans le script.js toujours commentez la ligne 2 et décommentez la lig
   <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/screenreadme2.png">
 </p>
 
-Prochaines features :
+## Prochaines features :
 
 - Grâce à un menu déroulant pouvoir changer d'extension à drafter.
 
