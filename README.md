@@ -24,7 +24,7 @@ J'ai plus de voiture....
 ## Fonctionnement détaillé de l'application
 
 <p align="center">
-  <img src="./src/assets/images/WAR_logo.png">
+  <img src="../tp-api/src/assets/images/WAR_logo.png">
 </p>
 
 Le principe est de reproduire un draft sur Magic et le fonctionnement est assez complexe.
@@ -38,7 +38,7 @@ après son pick etc..
 Et pour le dernier booster pareil mais dans l'autre sens ( vers la gauche ).
 
 <p align="center">
-  <img src="./src/assets/images/plan_draft.png">
+  <img src="./src/assets/images/plan_draft.png" alt = "Plan Draft"
 </p>
 
 Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark sur lequel j'ai décidé de faire le TP : Azorius Fly ),
