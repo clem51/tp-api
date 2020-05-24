@@ -9,6 +9,7 @@ const $header = document.querySelector(".header--image");
 
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
+// check if the booster is empty
 const isEmpty = (a) => Array.isArray(a) && a.every(isEmpty);
 
 // make disappear the button after cliking
@@ -45,7 +46,8 @@ const createCardElement = (card, index, selectedCards, boosters, handler) => {
   // create image element
   let $img = document.createElement("img");
   // set src of the element
-  $img.src = card.image_uris.large;
+  $img.src = card.image_uris.png;
+  // $img.src = card.image_uris.large;
   // append it to $el
   $el.appendChild($img);
   // $el.innerHTML = card.name;
