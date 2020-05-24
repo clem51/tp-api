@@ -9,6 +9,7 @@ const $header = document.querySelector(".header--image");
 
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
+const isEmpty = (a) => Array.isArray(a) && a.every(isEmpty);
 
 // make disappear the button after cliking
 $button.addEventListener("click", () => {
@@ -25,27 +26,30 @@ const getRandomCards = (cards, number) => {
   );
 };
 
-const createCardElement = (card, index, selectedCards, boosters) => {
+const createRecap = (selectedCards) => {
+  // Empty remaining elements
+  $listContainer.innerHTML = "";
+  // Inject selected cards
+  const $fragment = document.createDocumentFragment();
+  selectedCards.forEach((card) => {
+    $listContainer.appendChild(
+      createCardElement(card, 0, null, null, () => {})
+    );
+    $fragment.appendChild($listContainer);
+    $cardsContainer.appendChild($fragment);
+  });
+};
+
+const createCardElement = (card, index, selectedCards, boosters, handler) => {
   let $el = document.createElement("li");
   // create image element
   let $img = document.createElement("img");
   // set src of the element
-  //$img.src = card.image_uris.png;
   $img.src = card.image_uris.large;
   // append it to $el
   $el.appendChild($img);
   // $el.innerHTML = card.name;
-  $el.addEventListener("click", () => {
-    // remove and returns the selected card from booster
-    boosters[index % boosters.length].splice(
-      boosters[index % boosters.length].findIndex((c) => c.id == card.id),
-      1
-    );
-    // add removed card to our deck
-    selectedCards.push(card);
-    // handle logic to get the next booster
-    renderBooster((index += 1), selectedCards, boosters);
-  });
+  $el.addEventListener("click", handler(boosters, index, card, selectedCards));
   return $el;
 };
 
@@ -59,15 +63,35 @@ const createBooster = ({ rares, uncommon, common }) => {
 
 const renderBooster = (index, selectedCards, boosters) => {
   $listContainer.innerHTML = "";
-  console.log(index);
   const $fragment = document.createDocumentFragment();
   boosters[index % boosters.length].forEach((card) =>
     $listContainer.appendChild(
-      createCardElement(card, index, selectedCards, boosters)
+      createCardElement(card, index, selectedCards, boosters, handleClick)
     )
   );
   $fragment.appendChild($listContainer);
   $cardsContainer.appendChild($fragment);
+};
+
+const handleClick = (boosters, index, card, selectedCards) => () => {
+  let currentBooster = boosters[index % boosters.length];
+  // remove and returns the selected card from booster
+  currentBooster.splice(
+    currentBooster.findIndex((c) => c.id == card.id),
+    1
+  );
+  // Remove another card randomly from boosters, this represents other players picks
+  boosters.forEach((b) => b.splice(getRandomNumberInRange(b.length), 1));
+
+  // add removed card to our deck
+  selectedCards.push(card);
+
+  if (boosters.every(isEmpty)) {
+    createRecap(selectedCards);
+  } else {
+    // handle logic to get the next booster
+    renderBooster((index += 1), selectedCards, boosters);
+  }
 };
 
 const startDraft = () => {
@@ -89,7 +113,7 @@ const startDraft = () => {
             common: cards.filter((card) => card.rarity == "common"),
           };
           // return 8 boosters
-          return Array.from({ length: 2 }).map((_) => createBooster(cards));
+          return Array.from({ length: 8 }).map((_) => createBooster(cards));
         });
     })
     .then((boosters) => {
