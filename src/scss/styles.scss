@@ -20,6 +20,8 @@ body {
   transition: $property $duration $ease;
 }
 @font-face {
+  font-family: "Immortal";
+  src: url("../assets/fonts/IMMORTAL.ttf") format("ttf");
   font-family: "Magic:the Gathering";
   src: url("../assets/fonts/magic.ttf") format("ttf");
 }
@@ -40,7 +42,7 @@ body {
       width: 220px;
       flex-direction: row;
       margin: 5px;
-      // cards hover effect, little bit of work required
+      // cards hover effect, little bit of work required, like flam or shiny effect
       img:hover {
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -62,7 +64,7 @@ body {
     border: solid white 2px;
     border-radius: 10px;
     cursor: pointer;
-    font-family: "Magic:the Gathering", serif;
+    font-family: "Immortal", serif;
     letter-spacing: 0.3em;
     &.begin {
       @include transition(all, 0.5s, cubic-bezier(0.65, -0.25, 0.25, 1.95));
