@@ -24,13 +24,11 @@ J'ai plus de voiture....
 ## Fonctionnement détaillé de l'application
 
 <p align="center">
-  <img src="src/assets/images/WAR_logo.png">
+  <img src="/src/assets/images/WAR_logo.png">
 </p>
 
 Le principe est de reproduire un draft sur Magic et le fonctionnement est assez complexe.
 C'est assez long a expliquer mais en substance :
-
-<!-- ![Plan draft](Plan_Draft.png) -->
 
 Chaque joueur commence avec trois boosters, il pick une carte et le fait passer a son voisin de
 gauche qui as lui même pris une carte dans son booster, il reprends une carte dans celui qu'il vient d'avoir
@@ -40,7 +38,7 @@ après son pick etc..
 Et pour le dernier booster pareil mais dans l'autre sens ( vers la gauche ).
 
 <p align="center">
-  <img src="src/assets/images/plan_draft.png">
+  <img src="/src/assets/images/plan_draft.png">
 </p>
 
 Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark sur lequel j'ai décidé de faire le TP : Azorius Fly ),
@@ -57,14 +55,14 @@ Ligne 32/33 dans script.js commentez la ligne avec "\$img.src = card.image_uris.
 cela aura par contre un effet esthétique car le animation et les effets de hover sont prévues pour des images en png.
 
 <p align="center">
-  <img src="src/assets/images/screenreadme1.png">
+  <img src="/src/assets/images/screenreadme1.png">
 </p>
 
 -Il est possible de changer d'extension :
 Ligne 2/3 dans le script.js toujours commentez la ligne 2 et décommentez la ligne en dessous.
 
 <p align="center">
-  <img src="src/assets/images/screenreadme2.png">
+  <img src="/src/assets/images/screenreadme2.png">
 </p>
 
 Prochaines features :
