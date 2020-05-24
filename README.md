@@ -38,7 +38,7 @@ après son pick etc..
 Et pour le dernier booster pareil mais dans l'autre sens ( vers la gauche ).
 
 <p align="center">
-  <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/plan_draft.png" alt = "Plan Draft"
+  <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/plan_draft.png">
 </p>
 
 Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark sur lequel j'ai décidé de faire le TP : Azorius Fly ),

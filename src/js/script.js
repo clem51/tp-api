@@ -25,23 +25,26 @@ const getRandomCards = (cards, number) => {
   );
 };
 
-const createCardElement = (card, booster, idx, selectedCards, boosters) => {
+const createCardElement = (card, index, selectedCards, boosters) => {
   let $el = document.createElement("li");
   // create image element
   let $img = document.createElement("img");
   // set src of the element
-  $img.src = card.image_uris.png;
-  // $img.src = card.image_uris.large;
+  //$img.src = card.image_uris.png;
+  $img.src = card.image_uris.large;
   // append it to $el
   $el.appendChild($img);
   // $el.innerHTML = card.name;
   $el.addEventListener("click", () => {
     // remove and returns the selected card from booster
-    booster.splice(idx, 1);
+    boosters[index % boosters.length].splice(
+      boosters[index % boosters.length].findIndex((c) => c.id == card.id),
+      1
+    );
     // add removed card to our deck
     selectedCards.push(card);
     // handle logic to get the next booster
-    renderBooster(boosters[1], selectedCards, boosters);
+    renderBooster((index += 1), selectedCards, boosters);
   });
   return $el;
 };
@@ -54,12 +57,13 @@ const createBooster = ({ rares, uncommon, common }) => {
   ];
 };
 
-const renderBooster = (booster, selectedCards, boosters) => {
+const renderBooster = (index, selectedCards, boosters) => {
   $listContainer.innerHTML = "";
+  console.log(index);
   const $fragment = document.createDocumentFragment();
-  booster.forEach((card, idx) =>
+  boosters[index % boosters.length].forEach((card) =>
     $listContainer.appendChild(
-      createCardElement(card, booster, idx, selectedCards, boosters)
+      createCardElement(card, index, selectedCards, boosters)
     )
   );
   $fragment.appendChild($listContainer);
@@ -91,7 +95,7 @@ const startDraft = () => {
     .then((boosters) => {
       $loader.classList.add("hidden");
       // handle logic to get the next booster
-      renderBooster(boosters[0], [], boosters);
+      renderBooster(0, [], boosters);
     })
     .catch((err) => console.log(`Boom ${err}`));
 };
