@@ -47,6 +47,10 @@ sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magi
 
 Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/how-play-limited/le-booster-draft-de-quoi-il-sagit-et-comment-y-jouer-2017-11-07).
 
+<p align="center">
+  <img src="https://im3.ezgif.com/tmp/ezgif-3-5047cc68c1b3.gif">
+</p>
+
 Tips :
 
 -Il semblerait que Firefox gère mieux l'affichage des images, elles sont plus rapides à apparaitre.
@@ -69,6 +73,6 @@ Prochaines features :
 
 - Grâce à un menu déroulant pouvoir changer d'extension à drafter.
 
-- Partager sont Deck une fois la phase de picks finie.
+- Partager son Deck une fois la phase de picks finie.
 
 - Soon...
