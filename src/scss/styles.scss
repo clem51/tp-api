@@ -8,7 +8,7 @@ img {
   max-width: 100%;
 }
 body {
-  background-image: url("../../Background.jpg");
+  background: url("../assets/images/background.jpg") no-repeat fixed;
   background-size: cover;
 }
 //button animation
@@ -21,7 +21,7 @@ body {
 }
 @font-face {
   font-family: "Magic:the Gathering";
-  src: url("../Assets/Fonts/magic.ttf") format("ttf");
+  src: url("../assets/fonts/magic.ttf") format("ttf");
 }
 //div who contains cards, should call it card--container
 .cards {
@@ -30,9 +30,8 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: rgba(128, 128, 128, 0.25);
-  border-radius: 2%;
-  margin-left: 9.5%;
-  margin-right: 9.5%;
+  border-radius: 20px;
+  margin: 9.5%;
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -41,6 +40,7 @@ body {
       width: 220px;
       flex-direction: row;
       margin: 5px;
+      // cards hover effect, little bit of work required
       img:hover {
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -53,11 +53,14 @@ body {
 }
 // button container
 .start--button {
-  position: absolute;
-  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
   .button {
+    // text isn't well positioned yet
     border: solid white 2px;
-    border-radius: 5%;
+    border-radius: 10px;
     cursor: pointer;
     font-family: "Magic:the Gathering", serif;
     letter-spacing: 0.3em;
@@ -73,12 +76,12 @@ body {
       &:focus,
       &:active {
         opacity: 65%;
-        letter-spacing: 0.125rem;
+        // rem = roumain en moto
+        letter-spacing: 0.5rem;
       }
     }
   }
 }
-
 .hidden {
   display: none;
 }

@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <!--Need to put a favicon-->
     <link rel="stylesheet" href="scss/styles.scss" />
     <script defer src="js/script.js"></script>
   </head>
   <body>
     <div class="img--container">
-      <img src="../WAR_logo.png" class="header--image" />
+      <img src="assets/images/WAR_logo.png" class="header--image" />
+    </div>
+    <div class="start--button">
+      <input type="button" value="Start Draft" class="button begin" />
+    </div>
+    <div class="lds-ring hidden">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
     <div class="cards">
       <ul class="cardList"></ul>
-      <div class="start--button">
-        <input type="button" value="Start Draft" class="button begin" />
-        <div class="lds-ring hidden">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
     </div>
   </body>
 </html>
