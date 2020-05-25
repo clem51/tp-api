@@ -6,17 +6,21 @@ const $cardsContainer = document.querySelector(".cards");
 const $loader = document.querySelector(".lds-ring");
 const $listContainer = document.querySelector(".cardList");
 const $header = document.querySelector(".header--image");
-
+const $pickNumber = document.querySelector(".pick--number");
+const $extensionSelector = document.querySelector(".extension--selector");
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
 // check if the booster is empty
 const isEmpty = (a) => Array.isArray(a) && a.every(isEmpty);
 
-// make disappear the button after cliking
+// make disappear the button, the image and
+// make appear the loader and the pick number after cliking
 $button.addEventListener("click", () => {
   $header.classList.add("hidden");
   $button.classList.add("hidden");
   $loader.classList.remove("hidden");
+  $pickNumber.classList.remove("hidden");
+  $extensionSelector.classList.add("hidden");
   startDraft();
 });
 
@@ -39,6 +43,8 @@ const createRecap = (selectedCards) => {
     $fragment.appendChild($listContainer);
     $cardsContainer.appendChild($fragment);
   });
+  $pickNumber.innerHTML = "";
+  $pickNumber.textContent = "Your draft results";
 };
 
 const createCardElement = (card, index, selectedCards, boosters, handler) => {
@@ -73,6 +79,8 @@ const renderBooster = (index, selectedCards, boosters) => {
   );
   $fragment.appendChild($listContainer);
   $cardsContainer.appendChild($fragment);
+  // insert the pick number and instructions
+  $pickNumber.textContent = `Pick ${index + 1} : \nSelect a card.`;
 };
 
 const handleClick = (boosters, index, card, selectedCards) => () => {

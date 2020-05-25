@@ -10,8 +10,9 @@ img {
 body {
   background: url("../assets/images/background.jpg") no-repeat fixed;
   background-size: cover;
+  font-family: "Immortal", serif;
 }
-//button animation
+//button animations
 @mixin transition(
   $property: all,
   $duration: 0.5s,
@@ -19,6 +20,16 @@ body {
 ) {
   transition: $property $duration $ease;
 }
+@keyframes anim-glow {
+  0% {
+    box-shadow: 0 0 rgba(#61ef61, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px 8px transparent;
+    border-width: 2px;
+  }
+}
+// include polices
 @font-face {
   font-family: "Immortal";
   src: url("../assets/fonts/IMMORTAL.ttf") format("ttf");
@@ -48,7 +59,8 @@ body {
         border-bottom-left-radius: 10px;
         border-left: 5px solid rgba(0, 0, 0, 0.8);
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15),
-          0 10px 10px rgba(0, 0, 0, 0.22);
+          0 10px 10px rgba(0, 0, 0, 0.22), 0 0 5px 2px rgb(255, 255, 255, 0.6),
+          0 0 10px 5px rgb(178, 26, 224);
       }
     }
   }
@@ -64,8 +76,9 @@ body {
     border: solid white 2px;
     border-radius: 10px;
     cursor: pointer;
-    font-family: "Immortal", serif;
-    letter-spacing: 0.3em;
+    font-family: inherit;
+    letter-spacing: 0.2em;
+    text-align: center;
     &.begin {
       @include transition(all, 0.5s, cubic-bezier(0.65, -0.25, 0.25, 1.95));
       font-weight: 900;
@@ -77,9 +90,10 @@ body {
       &:hover,
       &:focus,
       &:active {
+        animation: anim-glow 1s ease infinite;
         opacity: 65%;
         // rem = roumain en moto
-        letter-spacing: 0.5rem;
+        letter-spacing: 0.4rem;
       }
     }
   }
@@ -92,4 +106,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.pick--number {
+  top: 12%;
+  right: 30%;
+  position: absolute;
+  width: auto;
+  height: auto;
+  color: black;
+  font-size: 55px;
+  -webkit-text-stroke: 1px white;
+}
+.extension--selector {
+  color: #ffff;
+  background: #3ba95c;
+  opacity: 90%;
+  font-family: inherit;
+  font-size: large;
+}
+.selector--container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-top: 2%;
 }
