@@ -1,5 +1,6 @@
 @import "vendors/reset";
 @import "loader.scss";
+@import "customSelect.scss";
 
 * {
   box-sizing: border-box;
@@ -117,18 +118,19 @@ body {
   font-size: 55px;
   -webkit-text-stroke: 1px white;
 }
-.extension--selector {
-  color: #ffff;
-  background: #3ba95c;
-  opacity: 90%;
-  font-family: inherit;
-  font-size: large;
-}
-.selector--container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  margin-top: 2%;
-}
+// .extension--selector {
+//   color: #ffff;
+//   background: #3ba95c;
+//   opacity: 90%;
+//   font-family: inherit;
+//   font-size: large;
+// }
+// .selector--container {
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: auto;
+//   margin-top: 2%;
+// }
+/* The container must be positioned relative: */
