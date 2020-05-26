@@ -21,6 +21,7 @@ $button.addEventListener("click", () => {
   $pickNumber.classList.remove("hidden");
   $extensionSelector.classList.add("hidden");
   startDraft(document.querySelector(".select-selected").dataset.ext);
+  console.log(startDraft);
 });
 
 // pick a random card inside array
