@@ -62,16 +62,7 @@ cela aura par contre un effet esthétique car les animations et les effets de ho
   <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/screenreadme1.png">
 </p>
 
--Il est possible de changer d'extension :
-Ligne 2/3 dans le script.js toujours commentez la ligne 2 et décommentez la ligne en dessous.
-
-<p align="center">
-  <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/screenreadme2.png">
-</p>
-
 ## Prochaines features :
-
-- Grâce à un menu déroulant pouvoir changer d'extension à drafter.
 
 - Partager son Deck une fois la phase de picks finie.
 
