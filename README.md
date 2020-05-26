@@ -19,7 +19,8 @@ https://scryfall.com/docs/api
 
 "https://api.scryfall.com/cards/search?order=rarity&q=set%3Awar".
 
-J'ai plus de voiture....
+et 6 autres extensions l'url est dynamique selon l'extension grace au select en carton que j'ai péché sur le web et dont j'ai du refacto le code.
+(Les copier coller c'est pas bien.)
 
 ## Fonctionnement détaillé de l'application
 
@@ -41,7 +42,7 @@ Et pour le dernier booster pareil mais dans l'autre sens ( vers la gauche ).
   <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/plan_draft.png">
 </p>
 
-Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark sur lequel j'ai décidé de faire le TP : Azorius Fly ),
+Le but est de se constituer un deck le plus optimisé possible, selon différents archétypes ( variables selon les extensions par exemple dans war of the spark : Azorius Fly ),
 et bien sûr les joueurs devront jouer les uns contre les autres ce que je n'ai pas implémenté et que je n'en ai pas l'intention
 sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magic ). Si c'est du chinois je pense que le lien le résumera mieux que moi.
 
