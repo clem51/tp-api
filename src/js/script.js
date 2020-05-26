@@ -1,6 +1,6 @@
 import { customSelect } from "./customSelect";
 
-const $button = document.querySelector(".start--button");
+const $button = document.querySelector(".button");
 const $cardsContainer = document.querySelector(".cards");
 const $loader = document.querySelector(".lds-ring");
 const $listContainer = document.querySelector(".cardList");
@@ -21,7 +21,6 @@ $button.addEventListener("click", () => {
   $pickNumber.classList.remove("hidden");
   $extensionSelector.classList.add("hidden");
   startDraft(document.querySelector(".select-selected").dataset.ext);
-  console.log(startDraft);
 });
 
 // pick a random card inside array

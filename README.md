@@ -56,7 +56,7 @@ Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/
 -Il semblerait que Firefox gère mieux l'affichage des images, elles sont plus rapides à apparaitre.
 Pour changer la résolution des images si votre pc/navigateur/réseau est lent :
 Ligne 32/33 dans script.js commentez la ligne avec "\$img.src = card.image_uris.png" et décommentez la ligne en dessous,
-cela aura par contre un effet esthétique car les animations et les effets de hover sont prévues pour des images en png.
+cela aura par contre un effet esthétique car les animations et les effets de hover sont prévus pour des images en png.
 
 <p align="center">
   <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/screenreadme1.png">
