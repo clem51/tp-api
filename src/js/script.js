@@ -1,12 +1,13 @@
 import { customSelect } from "./customSelect";
 
-const $button = document.querySelector(".button");
+const $button = document.querySelector(".start--button");
 const $cardsContainer = document.querySelector(".cards");
 const $loader = document.querySelector(".lds-ring");
 const $listContainer = document.querySelector(".cardList");
 const $header = document.querySelector(".header--image");
 const $pickNumber = document.querySelector(".pick--number");
-const $extensionSelector = document.querySelector(".custom-select");
+const $extensionSelector = document.querySelector(".select--wrapper");
+const $instructions = document.querySelector(".instructions");
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
 // check if the booster is empty
@@ -20,6 +21,7 @@ $button.addEventListener("click", () => {
   $loader.classList.remove("hidden");
   $pickNumber.classList.remove("hidden");
   $extensionSelector.classList.add("hidden");
+  $instructions.classList.add("hidden");
   startDraft(document.querySelector(".select-selected").dataset.ext);
 });
 
@@ -51,11 +53,10 @@ const createCardElement = (card, index, selectedCards, boosters, handler) => {
   // create image element
   let $img = document.createElement("img");
   // set src of the element
-  $img.src = card.image_uris.png;
-  // $img.src = card.image_uris.large;
+  // $img.src = card.image_uris.png;
+  $img.src = card.image_uris.large;
   // append it to $el
   $el.appendChild($img);
-  // $el.innerHTML = card.name;
   $el.addEventListener("click", handler(boosters, index, card, selectedCards));
   return $el;
 };

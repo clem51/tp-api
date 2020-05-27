@@ -9,7 +9,7 @@ npm run dev
 
 ## But de l'application en une phrase
 
-Simulateur de draft Magic the Gathering (Extension War Of The Spark).
+Simulateur de draft Magic the Gathering .
 
 ## URL de l'API utilisée
 
@@ -48,15 +48,15 @@ sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magi
 
 Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/how-play-limited/le-booster-draft-de-quoi-il-sagit-et-comment-y-jouer-2017-11-07).
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://im3.ezgif.com/tmp/ezgif-3-5047cc68c1b3.gif">
-</p>
+</p> -->
 
 ## Tips :
 
 -Il semblerait que Firefox gère mieux l'affichage des images, elles sont plus rapides à apparaitre.
 Pour changer la résolution des images si votre pc/navigateur/réseau est lent :
-Ligne 32/33 dans script.js commentez la ligne avec "\$img.src = card.image_uris.png" et décommentez la ligne en dessous,
+Ligne 54/55 dans script.js commentez la ligne avec "\$img.src = card.image_uris.png" et décommentez la ligne en dessous,
 cela aura par contre un effet esthétique car les animations et les effets de hover sont prévus pour des images en png.
 
 <p align="center">
