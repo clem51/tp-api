@@ -1,4 +1,5 @@
 const customSelect = () => {
+  const $button = document.querySelector(".start--button");
   var x, selElmnt, a, b;
   /* Look for any elements with the class "custom-select": */
   x = document.querySelector(".custom-select");
@@ -44,6 +45,7 @@ const customSelect = () => {
     e.stopPropagation();
     this.nextSibling.classList.toggle("select-hide");
     this.classList.toggle("select-arrow-active");
+    $button.classList.toggle("hidden");
   });
   /* If the user clicks anywhere outside the select box,
   then close all select boxes: */

@@ -53,12 +53,12 @@
 
 /* Style items (options): */
 .select-items {
+  opacity: 90%;
   position: absolute;
   background-color: #3ba95c;
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 99;
   border: solid white 2px;
   border-radius: 5px;
 }
@@ -70,5 +70,5 @@
 
 .select-items div:hover,
 .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
 }

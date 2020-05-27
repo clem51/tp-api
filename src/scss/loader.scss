@@ -1,11 +1,12 @@
+.loader--wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 .lds-ring {
-  display: inline-block;
-  position: absolute;
   width: 80px;
   height: 80px;
-  margin: 0 auto;
-  top: 47.5%;
-  right: 47.5%;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -14,7 +15,7 @@
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #ffff;
+  border: 10px solid #ffff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #ffff transparent transparent transparent;

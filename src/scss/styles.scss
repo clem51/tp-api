@@ -9,6 +9,9 @@
   background: url(../assets/images/lillianVessMobile.jpg);
   background-size: cover;
   background-attachment: fixed;
+  .header--image {
+    height: 15vh;
+  }
 }
 * {
   box-sizing: border-box;
@@ -101,22 +104,30 @@ body {
     font-size: inherit;
     @media screen and (max-width: 600px) {
       @include mobile;
-      width: 80%;
+      width: 75%;
+      height: 18vh;
     }
     &.begin {
       @include transition(all, 0.5s, cubic-bezier(0.65, -0.25, 0.25, 1.95));
       font-weight: 900;
       color: #ffff;
+      text-align: center;
       padding: 1.25rem 2rem;
       background: #3ba95c;
       opacity: 90%;
       text-transform: uppercase;
+
+      @media screen and (max-width: 600px) {
+        @include mobile;
+        padding: 1rem 1rem;
+        opacity: 80%;
+        background: #3ba95c;
+      }
       &:hover,
       &:focus,
       &:active {
-        animation: anim-glow 1s ease infinite;
+        animation: anim-glow 1.5s ease infinite;
         opacity: 65%;
-        // rem = roumain en moto
         letter-spacing: 0.4rem;
       }
     }
@@ -132,8 +143,8 @@ body {
 }
 .pick--number {
   margin-top: 2%;
-  // border: solid red;
   text-align: center;
+  transform: translateY(100px);
   width: auto;
   height: auto;
   color: black;
@@ -141,10 +152,26 @@ body {
   -webkit-text-stroke: 1px white;
   @media screen and (max-width: 600px) {
     @include mobile;
+    transform: none;
   }
 }
 .instructions {
   text-align: center;
   -webkit-text-stroke: 1px white;
   font-size: 35px;
+  @media screen and (max-width: 600px) {
+    @include mobile;
+    margin-top: 10vh;
+  }
+}
+.toggle--notation-container {
+  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  z-index: 2;
+  display: flex;
+}
+.toggle--notation {
+  border: solid blue;
+  z-index: 3;
 }

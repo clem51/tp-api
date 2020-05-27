@@ -2,12 +2,14 @@ import { customSelect } from "./customSelect";
 
 const $button = document.querySelector(".start--button");
 const $cardsContainer = document.querySelector(".cards");
-const $loader = document.querySelector(".lds-ring");
+const $loader = document.querySelector(".loader--wrapper");
 const $listContainer = document.querySelector(".cardList");
 const $header = document.querySelector(".header--image");
 const $pickNumber = document.querySelector(".pick--number");
 const $extensionSelector = document.querySelector(".select--wrapper");
 const $instructions = document.querySelector(".instructions");
+const $notation = document.querySelector(".toggle--notation");
+
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
 // check if the booster is empty
@@ -16,6 +18,7 @@ const isEmpty = (a) => Array.isArray(a) && a.every(isEmpty);
 // make disappear the button, the image and
 // make appear the loader and the pick number after cliking
 $button.addEventListener("click", () => {
+  $notation.remove("hidden");
   $header.classList.add("hidden");
   $button.classList.add("hidden");
   $loader.classList.remove("hidden");
@@ -53,7 +56,6 @@ const createCardElement = (card, index, selectedCards, boosters, handler) => {
   // create image element
   let $img = document.createElement("img");
   // set src of the element
-  // $img.src = card.image_uris.png;
   $img.src = card.image_uris.large;
   // append it to $el
   $el.appendChild($img);
@@ -135,3 +137,14 @@ const startDraft = (set) => {
 };
 
 customSelect();
+
+$notation.addEventListener("click", () => {
+  fetch(`https://api.scryfall.com/cards/search?q=c%3Awhite+cmc%3D1`)
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      boosters.forEach((card) => res.notation(card));
+      createlelemoncards;
+      //bon je commence a fatiguer
+    });
+});

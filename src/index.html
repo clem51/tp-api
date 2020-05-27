@@ -13,7 +13,7 @@
     <div class="img--container">
       <img src="assets/images/WAR_logo.png" class="header--image" />
     </div>
-   <div class="instructions"> Select the set you want to draft :</div>
+   <div class="instructions"> Select the set :</div>
     <div class="select--wrapper">
     <div class="custom-select">
       <select class="extension--options">
@@ -30,15 +30,20 @@
     <div class="start--button">
       <button type="button" value="Start Draft" class="button begin" /> Start Draft</button>
     </div>
-    <div class="lds-ring hidden">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class ="loader--wrapper hidden">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <div class="pick--number hidden"></div>
     <div class="cards">
       <ul class="cardList"></ul>
     </div>
-  </body>
+    <div class="toggle--notation-container">
+      <button class="toggle--notation hidden"> Note des cartes</button>
+    </div>
+    </body>
 </html>
