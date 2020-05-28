@@ -27,7 +27,7 @@ Et "https://murmuring-springs-05651.herokuapp.com/cards" pour les notations des 
 ## Fonctionnement détaillé de l'application
 
 <p align="center">
-  <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/WAR_logo.png">
+  <img src="src/assets/images/WAR_logo.png">
 </p>
 
 Pas de différences entre chrome et firefox sauf que firefox ne reconnait pas la police.
