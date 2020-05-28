@@ -19,8 +19,7 @@ https://scryfall.com/docs/api
 
 "https://api.scryfall.com/cards/search?order=rarity&q=set%3Awar".
 
-et 6 autres extensions l'url est dynamique selon l'extension grace au select en carton que j'ai péché sur le web et dont j'ai du refacto le code.
-(Les copier coller c'est pas bien.)
+et 6 autres extensions l'url est dynamique selon l'extension grace au select.
 
 Et "https://murmuring-springs-05651.herokuapp.com/cards" pour les notations des cartes (api au passage incomplète mais impossible d'en trouver une correcte).
 

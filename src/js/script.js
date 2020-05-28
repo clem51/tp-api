@@ -146,7 +146,7 @@ const startDraft = (set) => {
     })
     .then(([ratings, boosters]) => {
       $loader.classList.add("hidden");
-      $notation.classList.remove("hidden");
+      // $notation.classList.remove("hidden");
 
       // plug cards and ratings together
       boosters.forEach((booster) =>
@@ -159,7 +159,9 @@ const startDraft = (set) => {
       // handle logic to get the next booster
       renderBooster(0, [], boosters);
 
-      $notation.addEventListener("click", () => {});
+      // $notation.addEventListener("click", () => {
+      //   $infoRating.classList.toggle("hidden");
+      // });
     })
     .catch((err) => console.log(`Boom ${err}`));
 };
