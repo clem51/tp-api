@@ -22,11 +22,15 @@ https://scryfall.com/docs/api
 et 6 autres extensions l'url est dynamique selon l'extension grace au select en carton que j'ai péché sur le web et dont j'ai du refacto le code.
 (Les copier coller c'est pas bien.)
 
+Et "https://murmuring-springs-05651.herokuapp.com/cards" pour les notations des cartes (api au passage incomplète mais impossible d'en trouver une correcte).
+
 ## Fonctionnement détaillé de l'application
 
 <p align="center">
   <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/WAR_logo.png">
 </p>
+
+Pas de différences entre chrome et firefox sauf que firefox ne reconnait pas la police.
 
 Le principe est de reproduire un draft sur Magic et le fonctionnement est assez complexe.
 C'est assez long a expliquer mais en substance :
@@ -48,23 +52,12 @@ sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magi
 
 Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/how-play-limited/le-booster-draft-de-quoi-il-sagit-et-comment-y-jouer-2017-11-07).
 
-<!-- <p align="center">
-  <img src="https://im3.ezgif.com/tmp/ezgif-3-5047cc68c1b3.gif">
-</p> -->
-
-## Tips :
-
--Il semblerait que Firefox gère mieux l'affichage des images, elles sont plus rapides à apparaitre.
-Pour changer la résolution des images si votre pc/navigateur/réseau est lent :
-Ligne 54/55 dans script.js commentez la ligne avec "\$img.src = card.image_uris.png" et décommentez la ligne en dessous,
-cela aura par contre un effet esthétique car les animations et les effets de hover sont prévus pour des images en png.
-
-<p align="center">
-  <img src="https://github.com/clem51/tp-api/blob/master/src/Assets/images/screenreadme1.png">
-</p>
-
 ## Prochaines features :
 
+- Fixer le problème de fonts sur Firefox.
+
 - Partager son Deck une fois la phase de picks finie.
+
+- Support mobile complet
 
 - Soon...
