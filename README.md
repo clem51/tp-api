@@ -52,6 +52,10 @@ sinon je vais avoir des problèmes avec Wizard of the Coast ( l'éditeur de Magi
 
 Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/how-play-limited/le-booster-draft-de-quoi-il-sagit-et-comment-y-jouer-2017-11-07).
 
+<p align="center">
+  <img src="demo.gif">
+</p>
+
 ## Prochaines features :
 
 - Fixer le problème de fonts sur Firefox.
