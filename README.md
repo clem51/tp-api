@@ -57,8 +57,6 @@ Voir les principes de draft [ici](https://magic.wizards.com/fr/articles/archive/
 
 ## Prochaines features :
 
-- Finir le boutton notes pour les cartes.
-
 - Fixer le problème de fonts sur Firefox.
 
 - Partager son Deck une fois la phase de picks finie.

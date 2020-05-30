@@ -20,6 +20,7 @@ img {
   max-width: 100%;
 }
 body {
+  position: relative;
   background: url("../assets/images/background.jpg") no-repeat fixed;
   background-size: cover;
   font-family: "Immortal", serif;
@@ -192,16 +193,17 @@ body {
 }
 .toggle--notation-container {
   width: 100%;
-  position: fixed;
-  bottom: 10px;
+  position: sticky;
+  bottom: 30px;
   display: flex;
   justify-content: flex-end;
+  z-index: 9;
 }
 .toggle--notation {
   opacity: 70%;
   background-color: black;
   color: white;
-  margin-right: 10%;
+  margin-right: 2%;
   height: 6vh;
   border-radius: 6px;
   font-family: inherit;
