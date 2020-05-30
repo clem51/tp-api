@@ -1,3 +1,14 @@
+@mixin mobile {
+  font-size: 28px;
+  position: inherit;
+  text-align: center;
+  background: url(../assets/images/lillianVessMobile.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  .header--image {
+    height: 15vh;
+  }
+}
 .cards {
   margin: 5%;
   display: flex;
