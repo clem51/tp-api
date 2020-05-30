@@ -1,4 +1,5 @@
 import { customSelect } from "./customSelect";
+import "regenerator-runtime/runtime";
 
 const $button = document.querySelector(".start--button");
 const $cardsContainer = document.querySelector(".cards");
@@ -53,7 +54,7 @@ const createRecap = (selectedCards, set) => {
   $pickNumber.innerHTML = "";
   $pickNumber.textContent = "Here's your draft picks";
 
-  return fetch(`${API_URL}/${set}/record`, {
+  fetch(`${API_URL}/${set}/record`, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -126,63 +127,58 @@ const handleClick = (card, state) => () => {
   }
 };
 //the api call to get the cards from sets
-const startDraft = (set) => {
-  fetch(`https://api.scryfall.com/cards/search?order=rarity&q=set%3A${set}`)
-    .then((res) => res.json())
-    .then((payload) => {
-      // request the next page as pagination is set to 175 cards
-      // but we need the full set ( 260+ cards)
-      return fetch(payload.next_page)
-        .then((res) => res.json())
-        .then((res) => {
-          let cards = payload.data.concat(res.data);
-          // filter rare unco and commons
-          cards = {
-            rares: cards.filter(
-              (card) => card.rarity == "rare" || card.rarity == "mythic"
-            ),
-            uncommon: cards.filter((card) => card.rarity == "uncommon"),
-            common: cards.filter((card) => card.rarity == "common"),
-          };
-          // return 8 boosters
-          let boosters = Array.from({ length: 8 }).map((_) =>
-            createBooster(cards)
-          );
-          let data = boosters.flat().map((c) => c.name);
-          return fetch(`${API_URL}/${set}`, {
-            method: "POST",
-            mode: "cors",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ cards: data }),
-          })
-            .then((res) => res.json())
-            .then((data) => [data, boosters, set]);
-        });
-    })
-    // hide loader and show cards and notations button
-    .then(([ratings, boosters, set]) => {
-      $loader.classList.add("hidden");
-      $notationButton.classList.remove("hidden");
+const startDraft = async (set) => {
+  const res = await fetch(
+    `https://api.scryfall.com/cards/search?order=rarity&q=set%3A${set}`
+  );
 
-      // plug cards and ratings together
-      boosters.forEach((booster) =>
-        booster.forEach((card) => {
-          let found = ratings.find((c) => c.name == card.name);
-          found ? (card.ratings = found.rating) : (card.ratings = 0);
-        })
-      );
+  const payload = await res.json();
+  let nextPage = await fetch(payload.next_page);
+  nextPage = await nextPage.json();
 
-      renderBooster({
-        ...state,
-        boosters,
-        set,
-      });
+  // request the next page as pagination is set to 175 cards
+  // but we need the full set ( 260+ cards)
+  let cards = payload.data.concat(nextPage.data);
+  // filter rare unco and commons
+  cards = {
+    rares: cards.filter(
+      (card) => card.rarity == "rare" || card.rarity == "mythic"
+    ),
+    uncommon: cards.filter((card) => card.rarity == "uncommon"),
+    common: cards.filter((card) => card.rarity == "common"),
+  };
+  // return 8 boosters
+  let boosters = Array.from({ length: 8 }).map((_) => createBooster(cards));
+  let ratings = await fetch(`${API_URL}/${set}`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ cards: boosters.flat().map((c) => c.name) }),
+  });
+  ratings = await ratings.json();
+
+  // hide loader and show cards and notations button
+  $loader.classList.add("hidden");
+  $notationButton.classList.remove("hidden");
+
+  // // plug cards and ratings together
+  boosters.forEach((booster) =>
+    booster.forEach((card) => {
+      let found = ratings.find((c) => c.name == card.name);
+      found ? (card.ratings = found.rating) : (card.ratings = 0);
     })
-    .catch((err) => console.log(`Boom ${err}`));
+  );
+
+  renderBooster({
+    ...state,
+    boosters,
+    set,
+  });
 };
-//show/hide notations on cards
+
+// show/hide notations on cards
 $notationButton.addEventListener("click", () => {
   const $notation = document.querySelectorAll("div.notation");
   $notation.forEach(($el) => {
