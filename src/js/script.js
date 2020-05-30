@@ -11,6 +11,11 @@ const $instructions = document.querySelector(".instructions");
 const $notationButton = document.querySelector(".toggle--notation");
 const API_URL = "https://murmuring-springs-05651.herokuapp.com/cards";
 
+const state = {
+  index: 0,
+  selectedCards: [],
+};
+
 // random number function
 const getRandomNumberInRange = (max) => Math.floor(Math.random() * max);
 // check if the booster is empty
@@ -41,9 +46,7 @@ const createRecap = (selectedCards, set) => {
   // Inject selected cards
   const $fragment = document.createDocumentFragment();
   selectedCards.forEach((card) => {
-    $listContainer.appendChild(
-      createCardElement(card, 0, null, null, () => {})
-    );
+    $listContainer.appendChild(createCardElement(card, () => {}, {}));
     $fragment.appendChild($listContainer);
     $cardsContainer.appendChild($fragment);
   });
@@ -60,14 +63,7 @@ const createRecap = (selectedCards, set) => {
   });
 };
 
-const createCardElement = (
-  card,
-  index,
-  selectedCards,
-  boosters,
-  handler,
-  set
-) => {
+const createCardElement = (card, handler, state) => {
   let $el = document.createElement("li");
   let $infoRating = document.createElement("div");
   $infoRating.classList.add("notation");
@@ -79,10 +75,7 @@ const createCardElement = (
   $el.appendChild($infoRating);
   $el.appendChild($img);
   $infoRating.innerHTML = card.ratings;
-  $el.addEventListener(
-    "click",
-    handler(boosters, index, card, selectedCards, set)
-  );
+  $el.addEventListener("click", handler(card, state));
   return $el;
 };
 
@@ -94,13 +87,12 @@ const createBooster = ({ rares, uncommon, common }) => {
   ];
 };
 
-const renderBooster = (index, selectedCards, boosters, set) => {
+const renderBooster = (state) => {
+  const { index, boosters } = state;
   $listContainer.innerHTML = "";
   const $fragment = document.createDocumentFragment();
   boosters[index % boosters.length].forEach((card) => {
-    $listContainer.appendChild(
-      createCardElement(card, index, selectedCards, boosters, handleClick, set)
-    );
+    $listContainer.appendChild(createCardElement(card, handleClick, state));
   });
   $fragment.appendChild($listContainer);
   $cardsContainer.appendChild($fragment);
@@ -108,7 +100,8 @@ const renderBooster = (index, selectedCards, boosters, set) => {
   $pickNumber.textContent = `Pick ${index + 1} : \nSelect a card.`;
 };
 
-const handleClick = (boosters, index, card, selectedCards, set) => () => {
+const handleClick = (card, state) => () => {
+  let { boosters, index, selectedCards, set } = state;
   let currentBooster = boosters[index % boosters.length];
   // remove and returns the selected card from booster
   currentBooster.splice(
@@ -116,7 +109,11 @@ const handleClick = (boosters, index, card, selectedCards, set) => () => {
     1
   );
   // Remove another card randomly from boosters, this represents other players picks
-  boosters.forEach((b) => b.splice(getRandomNumberInRange(b.length), 1));
+  boosters.forEach((b) => {
+    if (b !== currentBooster) {
+      b.splice(getRandomNumberInRange(b.length), 1);
+    }
+  });
 
   // add removed card to our deck
   selectedCards.push(card);
@@ -125,7 +122,7 @@ const handleClick = (boosters, index, card, selectedCards, set) => () => {
     createRecap(selectedCards, set);
   } else {
     // handle logic to get the next booster
-    renderBooster((index += 1), selectedCards, boosters, set);
+    renderBooster({ index: (index += 1), selectedCards, boosters, set });
   }
 };
 //the api call to get the cards from sets
@@ -177,8 +174,11 @@ const startDraft = (set) => {
         })
       );
 
-      // handle logic to get the next booster
-      renderBooster(0, [], boosters, set);
+      renderBooster({
+        ...state,
+        boosters,
+        set,
+      });
     })
     .catch((err) => console.log(`Boom ${err}`));
 };
@@ -189,4 +189,5 @@ $notationButton.addEventListener("click", () => {
     $el.classList.toggle("hidden");
   });
 });
+
 customSelect();
